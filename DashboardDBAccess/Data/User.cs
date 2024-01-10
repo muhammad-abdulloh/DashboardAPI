@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using DashboardDBAccess.Contracts;
+using DashboardDBAccess.Data.JoiningEntity;
+using Microsoft.AspNetCore.Identity;
+
+namespace DashboardDBAccess.Data
+{
+    public class User : IdentityUser<int>, IPoco, IHasUserName, IHasEmail, IHasRegisteredAt, IHasLastLogin, IHasUserRoles, IHasPosts, IHasComments, IHasLikes
+    {
+        [Required]
+        [MinLength(3), MaxLength(20)]
+        public override string UserName { get; set; }
+        
+        public string ProfilePictureUrl { get; set; }
+        
+        [Required]
+        [MaxLength(320)]
+        public override string Email { get; set; }
+
+        [Required]
+        [NotMapped]
+        public string Password { get; set; }
+
+        [Required]
+        public DateTimeOffset RegisteredAt { get; set; }
+
+        [Required]
+        public DateTimeOffset LastLogin { get; set; }
+
+        [MaxLength(1000)]
+        public string UserDescription { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<Post> Posts { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<Like> Likes { get; set; }
+        
+        public string RefreshToken { get; set; }
+        
+        public DateTimeOffset RefreshTokenExpiration { get; set; }
+    }
+}

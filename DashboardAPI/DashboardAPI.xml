@@ -1,0 +1,1752 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DashboardAPI</name>
+    </assembly>
+    <members>
+        <member name="T:DashboardAPI.Authorization.Attributes.PermissionWithPermissionRangeAllRequiredAttribute">
+            <summary>
+             Attribute allowing to define the corresponding permission needed for an resource endpoint.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Authorization.Attributes.PermissionWithPermissionRangeAllRequiredAttribute.#ctor(DashboardDBAccess.Data.Permission.PermissionAction,DashboardDBAccess.Data.Permission.PermissionTarget)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Authorization.Attributes.PermissionWithPermissionRangeAllRequiredAttribute"/> class.
+            </summary>
+            <param name="permission"></param>
+            <param name="permissionTarget"></param>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Attributes.PermissionWithRangeAuthorizationHandler.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Attributes.PermissionWithRangeAuthorizationHandler.HandleAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Attributes.PermissionWithRangeAuthorizationHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionWithRangeRequirement)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForHasAuthorDtoAuthorizationHandler`1">
+            <summary>
+            Authorization Handler that verifies if user has a role with <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> or <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>
+            corresponding to the resource (<see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>) and if it can realize the action it is asking (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>).
+            </summary>
+            <example>
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> on all <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>. 
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> only on its own <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> (it is the author of this resource).
+            </example>
+            <typeparam name="TDto"></typeparam>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForHasAuthorDtoAuthorizationHandler`1.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForHasAuthorDtoAuthorizationHandler`1.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForHasUserDtoAuthorizationHandler`1">
+            <summary>
+            Authorization Handler that verifies if user has a role with <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> or <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>
+            corresponding to the resource (<see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>) and if it can realize the action it is asking (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>).
+            </summary>
+            <example>
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> on all <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>. 
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> only on its own <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> (it is the author of this resource).
+            </example>
+            <typeparam name="TDto"></typeparam>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForHasUserDtoAuthorizationHandler`1.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForHasUserDtoAuthorizationHandler`1.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForUserDtoAuthorizationHandler">
+            <summary>
+            Authorization Handler that verifies if user has a role with <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> or <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>
+            corresponding to the resource (<see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>) and if it can realize the action it is asking (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>).
+            </summary>
+            <example>
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> on all <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>. 
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> only on its own <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> (it is the author of this resource).
+            </example>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForUserDtoAuthorizationHandler.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Dtos.HasOwnOrAllPermissionRangeForUserDtoAuthorizationHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,DashboardAPI.Models.DTOs.Account.IAccountDto)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Resources.HasAllPermissionRangeAuthorizationHandler`1">
+            <summary>
+            Authorization Handler used to authorize a resource when the <see cref="T:DashboardDBAccess.Data.User"/> have <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> permission on this Type of resource.
+            </summary>
+            <example>
+            user "ModeratorName" has a role that has the permission "PermissionRange.All, PermissionAction.Delete, PermissionTarget.Comment"
+            => This handler requirement will succeed if this user ask authorization to delete a comment.
+            </example>
+            <example>
+            user "classicUser" doesn't have a role that has permission "PermissionRange.All, PermissionAction.Read, PermissionTarget.Role"
+            => This handler requirement won't succeed if this user ask authorization to read (GET) a role.
+            </example>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasAllPermissionRangeAuthorizationHandler`1.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasAllPermissionRangeAuthorizationHandler`1.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForHasAuthorEntityAuthorizationHandler`1">
+            <summary>
+            Authorization Handler that verifies if user has a role with <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> or <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>
+            corresponding to the resource (<see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>) and if it can realize the action it is asking (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>).
+            </summary>
+            <example>
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> on all <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>. 
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> only on its own <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> (it is the author of this resource).
+            </example>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForHasAuthorEntityAuthorizationHandler`1.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForHasAuthorEntityAuthorizationHandler`1.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForHasUserEntityAuthorizationHandler`1">
+            <summary>
+            Authorization Handler that verifies if user has a role with <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> or <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>
+            corresponding to the resource (<see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>) and if it can realize the action it is asking (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>).
+            </summary>
+            <example>
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> on all <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>. 
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> only on its own <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> (it is the author of this resource).
+            </example>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForHasUserEntityAuthorizationHandler`1.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForHasUserEntityAuthorizationHandler`1.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,`0)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForUserResourceAuthorizationHandler">
+            <summary>
+            Authorization Handler that verifies if user has a role with <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/> or <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>
+            corresponding to the resource (<see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>) and if it can realize the action it is asking (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>).
+            </summary>
+            <example>
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.All"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> on all <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/>. 
+            In case of <see cref="F:DashboardDBAccess.Data.Permission.PermissionRange.Own"/>, the user can realize <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> only on its own <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> (it is the author of this resource).
+            </example>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForUserResourceAuthorizationHandler.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.RoleService.IRoleService,AutoMapper.IMapper)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionHandlers.Resources.HasOwnOrAllPermissionRangeForUserResourceAuthorizationHandler.HandleRequirementAsync(Microsoft.AspNetCore.Authorization.AuthorizationHandlerContext,DashboardAPI.Authorization.Permissions.PermissionRequirement,DashboardDBAccess.Data.User)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.PermissionPolicyProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionPolicyProvider.#ctor(Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Authorization.AuthorizationOptions})">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Authorization.PermissionPolicyProvider.GetPolicyAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Authorization.Permissions.PermissionRequirement">
+            <summary>
+            Permission requirement used to describe an action (can read, can write, can delete, ...) (<see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/>)
+             on a resource (category, comment, like, ...) (<see cref="P:DashboardAPI.Authorization.Permissions.PermissionRequirement.PermissionTarget"/>)
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Authorization.Permissions.PermissionRequirement.#ctor(DashboardDBAccess.Data.Permission.PermissionAction,DashboardDBAccess.Data.Permission.PermissionTarget)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Authorization.Permissions.PermissionRequirement"/> class.
+            </summary>
+            <param name="permission"></param>
+            <param name="permissionTarget"></param>
+        </member>
+        <member name="T:DashboardAPI.Authorization.Permissions.PermissionWithRangeRequirement">
+            <summary>
+            Same as <see cref="T:DashboardAPI.Authorization.Permissions.PermissionRequirement"/> but with <see cref="P:DashboardAPI.Authorization.Permissions.PermissionWithRangeRequirement.PermissionRange"/> in addition (own or all resources).
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Authorization.Permissions.PermissionWithRangeRequirement.#ctor(DashboardDBAccess.Data.Permission.PermissionAction,DashboardDBAccess.Data.Permission.PermissionTarget,DashboardDBAccess.Data.Permission.PermissionRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Authorization.Permissions.PermissionWithRangeRequirement"/> class.
+            </summary>
+            <param name="permission"></param>
+            <param name="permissionTarget"></param>
+            <param name="permissionRange"></param>
+        </member>
+        <member name="T:DashboardAPI.AutoMapperProfile">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.AutoMapperProfile.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Controllers.AccountController">
+            <summary>
+            Controller used to enables account action such as login / log out.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.TokenService.ITokenService,Microsoft.AspNetCore.Authorization.IAuthorizationService,DashboardAPI.Services.MailService.IEmailService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.UsersController"/> class.
+            </summary>
+            <param name="userService"></param>
+            <param name="tokenService"></param>
+            <param name="authorizationService"></param>
+            <param name="emailService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.ConfirmAccountEmail(System.String,System.Int32)">
+            <summary>
+            Confirm account email by giving the token received by email
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.ResetAccountPassword(System.String,System.Int32,System.String)">
+            <summary>
+            Reset account password by giving the token received by email
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.ForgotPassword(DashboardAPI.Models.DTOs.Account.ResetPasswordDto,System.Threading.CancellationToken)">
+            <summary>
+            Send an email to reset password account
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.SignUp(DashboardAPI.Models.DTOs.Account.AddAccountDto,System.Threading.CancellationToken)">
+            <summary>
+            Create an account (a user).
+            </summary>
+            <remarks>
+            Create an account (a user).
+            </remarks>
+            <param name="account"></param>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.SignIn(DashboardAPI.Models.DTOs.Account.AccountLoginDto)">
+            <summary>
+            Sign In as a user.
+            </summary>
+            <remarks>
+            Sign In as a user.
+            </remarks>
+            <param name="accountLogin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.RevokeRefreshToken(System.Int32)">
+            <summary>
+            Revoke refresh token of a user
+            </summary>
+            <remarks>
+            Revoke refresh token of a user
+            </remarks>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.Refresh(DashboardAPI.Models.DTOs.RefreshTokenDto)">
+            <summary>
+            Generate a new refresh token and access token using a valid refresh token
+            </summary>
+            <remarks>
+            Sign In as a user.
+            </remarks>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.UpdateAccount(DashboardAPI.Models.DTOs.Account.UpdateAccountDto)">
+            <summary>
+            Update an account (a user).
+            </summary>
+            <remarks>
+            Update an account (a user).
+            </remarks>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.GetAccount(System.Int32)">
+            <summary>
+            Get an account by giving its Id.
+            </summary>
+            <remarks>
+            Get an account by giving its Id.
+            </remarks>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.AccountController.DeleteUser(System.Int32)">
+            <summary>
+            Delete an account (a user) by giving its id.
+            </summary>
+            <remarks>
+            Delete an account (a user) by giving its id.
+            </remarks>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.CategoriesController">
+            <summary>
+            Controller used to expose Category resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.#ctor(DashboardAPI.Services.CategoryService.ICategoryService,DashboardAPI.Services.PostService.IPostService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.CategoriesController"/> class.
+            </summary>
+            <param name="categoryService"></param>
+            <param name="postService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.GetCategories(DashboardAPI.Models.Queries.GetCategoryQueryParameters)">
+            <summary>
+            Get list of categories.
+            </summary>
+            <remarks>
+            Get list of categories. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.Get(System.Int32)">
+            <summary>
+            Get a category by giving its Id.
+            </summary>
+            <remarks>
+            Get a category by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.AddCategory(DashboardAPI.Models.DTOs.Category.AddCategoryDto)">
+            <summary>
+            Add a category.
+            </summary>
+            <remarks>
+            Add a category.
+            </remarks>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.UpdateCategory(DashboardAPI.Models.DTOs.Category.UpdateCategoryDto)">
+            <summary>
+            Update a category.
+            </summary>
+            <remarks>
+            Update a category.
+            </remarks>
+            <param name="category"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.DeleteCategory(System.Int32)">
+            <summary>
+            Delete a category by giving its id.
+            </summary>
+            <remarks>
+            Delete a category by giving its id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CategoriesController.GetPostFromCategory(System.Int32)">
+            <summary>
+            Get posts from a category by giving category's id.
+            </summary>
+            <remarks>
+            Get posts from a category by giving category's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.CommentsController">
+            <summary>
+            Controller used to expose Comment resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.#ctor(DashboardAPI.Services.CommentService.ICommentService,DashboardAPI.Services.LikeService.ILikeService,Microsoft.AspNetCore.Authorization.IAuthorizationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.CommentsController"/> class.
+            </summary>
+            <param name="commentService"></param>
+            <param name="likeService"></param>
+            <param name="authorizationService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.GetComments(DashboardAPI.Models.Queries.GetCommentQueryParameters)">
+            <summary>
+            Get list of comments.
+            </summary>
+            <remarks>
+            Get list of comments. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.Get(System.Int32)">
+            <summary>
+            Get a comment by giving its Id.
+            </summary>
+            <remarks>
+            Get a comment by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.AddComment(DashboardAPI.Models.DTOs.Comment.AddCommentDto)">
+            <summary>
+            Add a comment.
+            </summary>
+            <remarks>
+            Add a comment.
+            </remarks>
+            <param name="comment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.UpdateComment(DashboardAPI.Models.DTOs.Comment.UpdateCommentDto)">
+            <summary>
+            Update a comment.
+            </summary>
+            <remarks>
+            Update a comment.
+            </remarks>
+            <param name="comment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.DeleteComment(System.Int32)">
+            <summary>
+            Delete a comment by giving its id.
+            </summary>
+            <remarks>
+            Delete a comment by giving its id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.CommentsController.GetLikesFromComment(System.Int32)">
+            <summary>
+            Get likes from a comment by giving comment's id.
+            </summary>
+            <remarks>
+            Get likes from a comment by giving comment's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.ErrorsController">
+            <summary>
+            Errors controllers used as middleware to catch exceptions and manage behaviors.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.ErrorsController.Error">
+            <summary>
+            Define HttpStatusCode and error type depending of exception raised.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.LikesController">
+            <summary>
+            Controller used to expose Like resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.LikesController.#ctor(DashboardAPI.Services.LikeService.ILikeService,Microsoft.AspNetCore.Authorization.IAuthorizationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.LikesController"/> class.
+            </summary>
+            <param name="likeService"></param>
+            <param name="authorizeService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.LikesController.GetLikes(DashboardAPI.Models.Queries.GetLikeQueryParameters)">
+            <summary>
+            Get list of likes.
+            </summary>
+            <remarks>
+            Get list of likes. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.LikesController.Get(System.Int32)">
+            <summary>
+            Get a like by giving its Id.
+            </summary>
+            <remarks>
+            Get a like by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.LikesController.AddLikes(DashboardAPI.Models.DTOs.Like.AddLikeDto)">
+            <summary>
+            Add a like.
+            </summary>
+            <remarks>
+            Add a like.
+            </remarks>
+            <param name="like"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.LikesController.UpdateLike(DashboardAPI.Models.DTOs.Like.UpdateLikeDto)">
+            <summary>
+            Update a like.
+            </summary>
+            <remarks>
+            Update a like.
+            </remarks>
+            <param name="like"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.LikesController.DeleteLike(System.Int32)">
+            <summary>
+            Delete a like by giving its id.
+            </summary>
+            <remarks>
+            Delete a like by giving its id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.PostsController">
+            <summary>
+            Controller used to expose Post resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.#ctor(DashboardAPI.Services.PostService.IPostService,DashboardAPI.Services.CommentService.ICommentService,DashboardAPI.Services.LikeService.ILikeService,Microsoft.AspNetCore.Authorization.IAuthorizationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.PostsController"/> class.
+            </summary>
+            <param name="postService"></param>
+            <param name="commentService"></param>
+            <param name="likeService"></param>
+            <param name="authorizationService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.GetPosts(DashboardAPI.Models.Queries.GetPostQueryParameters)">
+            <summary>
+            Get list of posts.
+            </summary>
+            <remarks>
+            Get list of posts. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.Get(System.Int32)">
+            <summary>
+            Get a post by giving its Id.
+            </summary>
+            <remarks>
+            Get a post by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.AddPost(DashboardAPI.Models.DTOs.Post.AddPostDto)">
+            <summary>
+            Add a post.
+            </summary>
+            <remarks>
+            Add a post.
+            </remarks>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.UpdatePost(DashboardAPI.Models.DTOs.Post.UpdatePostDto)">
+            <summary>
+            Update a post.
+            </summary>
+            <remarks>
+            Update a post.
+            </remarks>
+            <param name="post"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.DeletePost(System.Int32)">
+            <summary>
+            Delete a post by giving its id.
+            </summary>
+            <remarks>
+            Delete a post by giving its id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.GetCommentsFromPost(System.Int32)">
+            <summary>
+            Get comments from a post by giving post's id.
+            </summary>
+            <remarks>
+            Get comments from a post by giving post's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.PostsController.GetLikesFromPost(System.Int32)">
+            <summary>
+            Get likes from a post by giving post's id.
+            </summary>
+            <remarks>
+            Get likes from a post by giving post's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.RolesController">
+            <summary>
+            Controller used to expose Role resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.#ctor(DashboardAPI.Services.RoleService.IRoleService,DashboardAPI.Services.UserService.IUserService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.CommentsController"/> class.
+            </summary>
+            <param name="roleService"></param>
+            <param name="userService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.GetRoles(DashboardAPI.Models.Queries.GetRoleQueryParameters)">
+            <summary>
+            Get list of roles.
+            </summary>
+            <remarks>
+            Get list of roles. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.Get(System.Int32)">
+            <summary>
+            Get a role by giving its Id.
+            </summary>
+            <remarks>
+            Get a role by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.AddRole(DashboardAPI.Models.DTOs.Role.AddRoleDto)">
+            <summary>
+            Add a role.
+            </summary>
+            <remarks>
+            Add a role.
+            </remarks>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.UpdateRole(DashboardAPI.Models.DTOs.Role.UpdateRoleDto)">
+            <summary>
+            Update a role.
+            </summary>
+            <remarks>
+            Update a role.
+            </remarks>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.GetPermissions(System.Int32)">
+            <summary>
+            Get permissions from an existing role.
+            </summary>
+            <remarks>
+            Get permissions from an existing role.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.AddPermission(System.Int32,DashboardDBAccess.Data.Permission.Permission)">
+            <summary>
+            Add a permission to an existing role.
+            </summary>
+            <remarks>
+            Add a permission to an existing role.
+            </remarks>
+            <param name="id"></param>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.RemovePermission(System.Int32,DashboardDBAccess.Data.Permission.Permission)">
+            <summary>
+            Remove a permission to an existing role.
+            </summary>
+            <remarks>
+            Remove a permission to an existing role.
+            </remarks>
+            <param name="id"></param>
+            <param name="permission"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.DeleteRole(System.Int32)">
+            <summary>
+            Delete a role by giving its id.
+            </summary>
+            <remarks>
+            Delete a role by giving its id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.RolesController.GetUsersFromRole(System.Int32)">
+            <summary>
+            Get list of users with a specific role by giving the role's id.
+            </summary>
+            <remarks>
+            Get list of users with a specific role by giving the role's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.TagsController">
+            <summary>
+            Controller used to expose Tag resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.#ctor(DashboardAPI.Services.TagService.ITagService,DashboardAPI.Services.PostService.IPostService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.TagsController"/> class.
+            </summary>
+            <param name="tagService"></param>
+            <param name="postService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.GetTags(DashboardAPI.Models.Queries.GetTagQueryParameters)">
+            <summary>
+            Get list of tags.
+            </summary>
+            <remarks>
+            Get list of tags. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.Get(System.Int32)">
+            <summary>
+            Get a tag by giving its Id.
+            </summary>
+            <remarks>
+            Get a tag by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.AddTag(DashboardAPI.Models.DTOs.Tag.AddTagDto)">
+            <summary>
+            Add a tag.
+            </summary>
+            <remarks>
+            Add a tag.
+            </remarks>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.UpdateTag(DashboardAPI.Models.DTOs.Tag.UpdateTagDto)">
+            <summary>
+            Update a tag.
+            </summary>
+            <remarks>
+            Update a tag.
+            </remarks>
+            <param name="tag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.DeleteUser(System.Int32)">
+            <summary>
+            Delete a tag by giving its id.
+            </summary>
+            <remarks>
+            Delete a tag by giving its id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.TagsController.GetPostsFromTag(System.Int32)">
+            <summary>
+            Get posts from a tag by giving tag's id.
+            </summary>
+            <remarks>
+            Get posts from a tag by giving tag's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Controllers.UsersController">
+            <summary>
+            Controller used to expose User resources of the API.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.#ctor(DashboardAPI.Services.UserService.IUserService,DashboardAPI.Services.LikeService.ILikeService,DashboardAPI.Services.PostService.IPostService,DashboardAPI.Services.CommentService.ICommentService,DashboardAPI.Services.RoleService.IRoleService,Microsoft.AspNetCore.Authorization.IAuthorizationService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Controllers.UsersController"/> class.
+            </summary>
+            <param name="userService"></param>
+            <param name="likeService"></param>
+            <param name="postService"></param>
+            <param name="commentService"></param>
+            <param name="roleService"></param>
+            <param name="authorizationService"></param>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.GetUsers(DashboardAPI.Models.Queries.GetUserQueryParameters)">
+            <summary>
+            Get list of users.
+            </summary>
+            <remarks>
+            Get list of users. The endpoint uses pagination and sort. Filter(s) can be applied for research.
+            </remarks>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.Get(System.Int32)">
+            <summary>
+            Get a user by giving its Id.
+            </summary>
+            <remarks>
+            Get a user by giving its Id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.AddRoleToUser(System.Int32,System.Int32)">
+            <summary>
+            Add a role to a user.
+            </summary>
+            <remarks>
+            Add a role to a user.
+            </remarks>
+            <param name="id"></param>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.RemoveRoleToUser(System.Int32,System.Int32)">
+            <summary>
+            Remove a role to a user.
+            </summary>
+            <remarks>
+            Remove a role to a user.
+            </remarks>
+            <param name="id"></param>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.DefineDefaultRolesToNewUsers(DashboardAPI.Models.DTOs.Role.DefaultRolesDto)">
+            <summary>
+            Define default role(s) assigned to new users.
+            </summary>
+            <remarks>
+            Define default role(s) assigned to new users.
+            </remarks>
+            <param name="defaultRoles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.GetDefaultRolesToNewUsers">
+            <summary>
+            Get current default role(s) assigned to new users.
+            </summary>
+            <remarks>
+            Get current default role(s) assigned to new users.
+            </remarks>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.GetPostsFromUser(System.Int32)">
+            <summary>
+            Get posts written by a user by giving user's id.
+            </summary>
+            <remarks>
+            Get posts written by a user by giving user's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.GetCommentsFromUser(System.Int32)">
+            <summary>
+            Get comments written by a user by giving user's id.
+            </summary>
+            <remarks>
+            Get comments written by a user by giving user's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Controllers.UsersController.GetLikesFromUser(System.Int32)">
+            <summary>
+            Get likes given by a user by giving user's id.
+            </summary>
+            <remarks>
+            Get likes given by a user by giving user's id.
+            </remarks>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Extensions.ServiceCollectionExtensions">
+            <summary> 
+            Extension of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/> adding methods to inject DashboardAPI Services 
+            </summary> 
+        </member>
+        <member name="M:DashboardAPI.Extensions.ServiceCollectionExtensions.RegisterRepositoryServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary> 
+            class used to register repository services 
+            </summary> 
+            <param name="services"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:DashboardAPI.Extensions.ServiceCollectionExtensions.RegisterResourceServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary> 
+            class used to register resource services 
+            </summary> 
+            <param name="services"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:DashboardAPI.Extensions.ServiceCollectionExtensions.RegisterDtoResourceValidators(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary> 
+            class used to register resource validators
+            </summary> 
+            <param name="services"></param> 
+            <returns></returns> 
+        </member>
+        <member name="M:DashboardAPI.Extensions.ServiceCollectionExtensions.RegisterAuthorizationHandlers(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary> 
+            class used to register resource services 
+            </summary> 
+            <param name="services"></param> 
+            <returns></returns> 
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Category.CategoryFilterSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.FilterSpecifications.FilterSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Category"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Category.CategoryFilterSpecificationBuilder.Build">
+            <summary>
+            Get filter specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Category"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Category.CategorySortSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Category"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Category.CategorySortSpecificationBuilder.#ctor(DashboardAPI.Models.Order,DashboardAPI.Models.Sort.CategorySort)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Category.CategorySortSpecificationBuilder"/> class.
+            </summary>
+            <param name="order"></param>
+            <param name="categorySort"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Category.CategorySortSpecificationBuilder.Build">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Category"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Comment.CommentFilterSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.FilterSpecifications.FilterSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Comment"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Comment.CommentFilterSpecificationBuilder.Build">
+            <summary>
+            Get filter specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Comment"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Comment.CommentSortSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Comment"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Comment.CommentSortSpecificationBuilder.#ctor(DashboardAPI.Models.Order,DashboardAPI.Models.Sort.CommentSort)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Comment.CommentSortSpecificationBuilder"/> class.
+            </summary>
+            <param name="order"></param>
+            <param name="sort"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Comment.CommentSortSpecificationBuilder.Build">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Comment"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Like.LikeFilterSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.FilterSpecifications.FilterSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Like"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Like.LikeFilterSpecificationBuilder.#ctor(System.Nullable{DashboardDBAccess.Data.LikeableType})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Like.LikeFilterSpecificationBuilder"/> class.
+            </summary>
+            <param name="likeableType"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Like.LikeFilterSpecificationBuilder.Build">
+            <summary>
+            Get filter specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Like"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Like.SortLikeBuilder">
+            <summary>
+             Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Like"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Like.SortLikeBuilder.#ctor(DashboardAPI.Models.Order)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Like.SortLikeBuilder"/> class.
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Like.SortLikeBuilder.Build">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Like"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.PagingSpecificationBuilder">
+            <summary>
+            Pagination filter used to execute Query on a resource.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Builders.Specifications.PagingSpecificationBuilder.Page">
+            <summary>
+            Page of the query.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Builders.Specifications.PagingSpecificationBuilder.Limit">
+            <summary>
+            Limit of the query.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.PagingSpecificationBuilder.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.PagingSpecificationBuilder"/> class.
+            </summary>
+            <param name="page"></param>
+            <param name="pageSize"></param>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Post.PostFilterSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.FilterSpecifications.FilterSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Post"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Post.PostFilterSpecificationBuilder.Build">
+            <summary>
+            Get filter specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Post"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Post.SortPostFilter">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Post"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Post.SortPostFilter.#ctor(DashboardAPI.Models.Order,DashboardAPI.Models.Sort.PostSort)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Post.SortPostFilter"/> class.
+            </summary>
+            <param name="order"></param>
+            <param name="sort"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Post.SortPostFilter.GetSorting">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Post"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Role.RoleSortSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Role"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Role.RoleSortSpecificationBuilder.#ctor(DashboardAPI.Models.Order)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Role.RoleSortSpecificationBuilder"/> class.
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Role.RoleSortSpecificationBuilder.Build">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Role"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Tag.TagQueryFilter">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.FilterSpecifications.FilterSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Tag"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Tag.TagQueryFilter.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Tag.TagQueryFilter"/> class.
+            </summary>
+            <param name="inName"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Tag.TagQueryFilter.Build">
+            <summary>
+            Get filter specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Tag"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.Tag.TagSortSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.Tag"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Tag.TagSortSpecificationBuilder.#ctor(DashboardAPI.Models.Order)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.Tag.TagSortSpecificationBuilder"/> class.
+            </summary>
+            <param name="order"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.Tag.TagSortSpecificationBuilder.Build">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.Tag"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.User.UserFilterSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.FilterSpecifications.FilterSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.User"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.User.UserFilterSpecificationBuilder.Build">
+            <summary>
+            Get filter specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.User"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.Builders.Specifications.User.UserSortSpecificationBuilder">
+            <summary>
+            Class used to generate <see cref="T:DashboardDBAccess.Specifications.SortSpecification.SortSpecification`1"/> for <see cref="N:DashboardAPI.Models.Builders.Specifications.User"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.User.UserSortSpecificationBuilder.#ctor(DashboardAPI.Models.Order,DashboardAPI.Models.Sort.UserSort)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.Builders.Specifications.User.UserSortSpecificationBuilder"/> class.
+            </summary>
+            <param name="order"></param>
+            <param name="sort"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.Builders.Specifications.User.UserSortSpecificationBuilder.Build">
+            <summary>
+            Get sort specification of <see cref="N:DashboardAPI.Models.Builders.Specifications.User"/> based of internal properties defined.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Account.AddAccountDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.User"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Account.Converters.UpdateAccountConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardAPI.Models.DTOs.Account.UpdateAccountDto"/> to <see cref="N:DashboardAPI.Models.DTOs.User"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Account.Converters.UpdateAccountConverter.Convert(DashboardAPI.Models.DTOs.Account.UpdateAccountDto,DashboardDBAccess.Data.User,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Account.GetAccountDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Account"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Account.IAccountDto">
+            <summary>
+            Interface of User Dto containing all the common properties of Account Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Account.UpdateAccountDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Account"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.ADto">
+            <summary>
+            Abstract of <see cref="T:DashboardAPI.Models.DTOs.IDto"/>. This class implement the mandatory properties and methods of all resources classified as Dto.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.DTOs.ADto.Id">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.ADto.Equals(DashboardAPI.Models.DTOs.IDto)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.ADto.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.ADto.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Category.AddCategoryDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.Category"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Category.Converters.CategoryIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.Category"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Category.Converters.CategoryIdConverter.#ctor(DashboardDBAccess.Repositories.Category.ICategoryRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Category.Converters.CategoryIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Category.Converters.CategoryIdConverter.Convert(System.Int32,DashboardDBAccess.Data.Category,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Category.Converters.UpdateCategoryConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardAPI.Models.DTOs.Category.UpdateCategoryDto"/> to <see cref="N:DashboardAPI.Models.DTOs.Category"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Category.Converters.UpdateCategoryConverter.Convert(DashboardAPI.Models.DTOs.Category.UpdateCategoryDto,DashboardDBAccess.Data.Category,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Category.GetCategoryDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Category"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Category.ICategoryDto">
+            <summary>
+            Interface of <see cref="N:DashboardAPI.Models.DTOs.Category"/> Dto containing all the common properties of Category Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Category.UpdateCategoryDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Category"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Comment.AddCommentDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.Comment"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Comment.Converters.CommentIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.Comment"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Comment.Converters.CommentIdConverter.#ctor(DashboardDBAccess.Repositories.Comment.ICommentRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Comment.Converters.CommentIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Comment.Converters.CommentIdConverter.Convert(System.Int32,DashboardDBAccess.Data.Comment,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Comment.Converters.UpdateCommentConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardAPI.Models.DTOs.Comment.UpdateCommentDto"/> to <see cref="N:DashboardAPI.Models.DTOs.Comment"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Comment.Converters.UpdateCommentConverter.#ctor(DashboardDBAccess.Repositories.Comment.ICommentRepository,DashboardDBAccess.Repositories.Post.IPostRepository,DashboardDBAccess.Repositories.User.IUserRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Comment.Converters.UpdateCommentConverter"/> class.
+            </summary>
+            <param name="commentRepository"></param>
+            <param name="postRepository"></param>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Comment.Converters.UpdateCommentConverter.Convert(DashboardAPI.Models.DTOs.Comment.UpdateCommentDto,DashboardDBAccess.Data.Comment,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Comment.GetCommentDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Comment"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Comment.ICommentDto">
+            <summary>
+            Interface of <see cref="N:DashboardAPI.Models.DTOs.Comment"/> Dto containing all the common properties of Comment Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Comment.UpdateCommentDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Comment"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.IDto">
+            <summary>
+            Interface of all Dto object resource which include the mandatory properties needed to classify an object as a Dto
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.DTOs.IDto.Id">
+            <summary>
+            Id of the resource. This element is necessary to recover the object inside Database.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Like.AddLikeDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.Like"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Like.Converters.LikeIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.Like"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Like.Converters.LikeIdConverter.#ctor(DashboardDBAccess.Repositories.Like.ILikeRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Like.Converters.LikeIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Like.Converters.LikeIdConverter.Convert(System.Int32,DashboardDBAccess.Data.Like,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Like.Converters.UpdateLikeConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardAPI.Models.DTOs.Like.UpdateLikeDto"/> to <see cref="N:DashboardAPI.Models.DTOs.Like"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Like.Converters.UpdateLikeConverter.#ctor(DashboardDBAccess.Repositories.Comment.ICommentRepository,DashboardDBAccess.Repositories.Post.IPostRepository,DashboardDBAccess.Repositories.User.IUserRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Like.Converters.UpdateLikeConverter"/> class.
+            </summary>
+            <param name="commentRepository"></param>
+            <param name="postRepository"></param>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Like.Converters.UpdateLikeConverter.Convert(DashboardAPI.Models.DTOs.Like.UpdateLikeDto,DashboardDBAccess.Data.Like,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Like.GetLikeDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Like"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Like.ILikeDto">
+            <summary>
+            Interface of <see cref="N:DashboardAPI.Models.DTOs.Like"/> Dto containing all the common properties of Like Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Like.UpdateLikeDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Like"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Permission.Converters.PermissionActionConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardDBAccess.Data.Permission.PermissionAction"/> to <see cref="T:DashboardAPI.Models.DTOs.Permission.PermissionActionDto"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Permission.Converters.PermissionActionConverter.Convert(DashboardDBAccess.Data.Permission.PermissionAction,DashboardAPI.Models.DTOs.Permission.PermissionActionDto,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Permission.Converters.PermissionRangeConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardDBAccess.Data.Permission.PermissionRange"/> to <see cref="T:DashboardAPI.Models.DTOs.Permission.PermissionRangeDto"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Permission.Converters.PermissionRangeConverter.Convert(DashboardDBAccess.Data.Permission.PermissionRange,DashboardAPI.Models.DTOs.Permission.PermissionRangeDto,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Permission.Converters.PermissionTargetConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardDBAccess.Data.Permission.PermissionTarget"/> to <see cref="T:DashboardAPI.Models.DTOs.Permission.PermissionTargetDto"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Permission.Converters.PermissionTargetConverter.Convert(DashboardDBAccess.Data.Permission.PermissionTarget,DashboardAPI.Models.DTOs.Permission.PermissionTargetDto,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Permission.PermissionDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Permission"/>
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Post.AddPostDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.Post"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Post.Converters.PostIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.Post"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Post.Converters.PostIdConverter.#ctor(DashboardDBAccess.Repositories.Post.IPostRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Post.Converters.PostIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Post.Converters.PostIdConverter.Convert(System.Int32,DashboardDBAccess.Data.Post,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Post.Converters.UpdatePostConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="T:DashboardAPI.Models.DTOs.Post.Converters.UpdatePostConverter"/> to <see cref="N:DashboardAPI.Models.DTOs.Post"/>.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Post.Converters.UpdatePostConverter.#ctor(DashboardDBAccess.Repositories.User.IUserRepository,DashboardDBAccess.Repositories.Category.ICategoryRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Post.Converters.UpdatePostConverter"/> class.
+            </summary>
+            <param name="userRepository"></param>
+            <param name="categoryRepository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Post.Converters.UpdatePostConverter.Convert(DashboardAPI.Models.DTOs.Post.UpdatePostDto,DashboardDBAccess.Data.Post,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Post.GetPostDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Post"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Post.IPostDto">
+            <summary>
+            Interface of <see cref="N:DashboardAPI.Models.DTOs.Post"/> Dto containing all the common properties of Post Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Post.UpdatePostDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Post"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Role.AddRoleDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.Role"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Role.Converters.RoleIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.Role"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Role.Converters.RoleIdConverter.#ctor(DashboardDBAccess.Repositories.Role.IRoleRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Role.Converters.RoleIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Role.Converters.RoleIdConverter.Convert(System.Int32,DashboardDBAccess.Data.Role,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Role.GetRoleDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Role"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Role.IRoleDto">
+            <summary>
+            Interface of <see cref="N:DashboardAPI.Models.DTOs.Role"/> Dto containing all the common properties of Role Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Role.UpdateRoleDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Role"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Tag.AddTagDto">
+            <summary>
+            Add Dto type of <see cref="N:DashboardAPI.Models.DTOs.Tag"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Tag.Converters.TagIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.Tag"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Tag.Converters.TagIdConverter.#ctor(DashboardDBAccess.Repositories.Tag.ITagRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.Tag.Converters.TagIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.Tag.Converters.TagIdConverter.Convert(System.Int32,DashboardDBAccess.Data.Tag,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Tag.GetTagDto">
+            <summary>
+            GET Dto type of <see cref="N:DashboardAPI.Models.DTOs.Tag"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Tag.ITagDto">
+            <summary>
+            Interface of <see cref="N:DashboardAPI.Models.DTOs.Tag"/> Dto containing all the common properties of Tag Dto Type (GET, ADD, UPDATE).
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.Tag.UpdateTagDto">
+            <summary>
+            UPDATE Dto type of <see cref="N:DashboardAPI.Models.DTOs.Tag"/>.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Models.DTOs.User.Converters.UserIdConverter">
+            <summary>
+            AutoMapper converter used to enable the conversion of <see cref="N:DashboardAPI.Models.DTOs.User"/> to its resource Id.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.User.Converters.UserIdConverter.#ctor(DashboardDBAccess.Repositories.User.IUserRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Models.DTOs.User.Converters.UserIdConverter"/> class.
+            </summary>
+            <param name="repository"></param>
+        </member>
+        <member name="M:DashboardAPI.Models.DTOs.User.Converters.UserIdConverter.Convert(System.Int32,DashboardDBAccess.Data.User,AutoMapper.ResolutionContext)">
+            <inheritdoc />
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.APaginationQuery.Page">
+            <summary>
+            Cursor for pagination across multiple pages of results. Default value is 1.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.APaginationQuery.PageSize">
+            <summary>
+            Number of elements to return per page. Max value is 100. Default value is 10.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCategoryQueryParameters.OrderBy">
+            <summary>
+            Order the return categories by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCategoryQueryParameters.SortBy">
+            <summary>
+            Sort the returned categories by the given parameter.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCategoryQueryParameters.InName">
+            <summary>
+            Returns only categories whose name contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCategoryQueryParameters.MinimumPosts">
+            <summary>
+            Returns only categories with a number of posts greater than or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCategoryQueryParameters.MaximumPosts">
+            <summary>
+            Returns only categories with a number of posts less than or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCommentQueryParameters.OrderBy">
+            <summary>
+            Order the return comments by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCommentQueryParameters.SortBy">
+            <summary>
+            Sort the returned comments by the given parameter.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCommentQueryParameters.InAuthorUserName">
+            <summary>
+            Returns only comments whose author's username contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCommentQueryParameters.InPostParentName">
+            <summary>
+            Returns only comments whose parent post name contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetCommentQueryParameters.InContent">
+            <summary>
+            Returns only comments whose content contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetLikeQueryParameters.OrderBy">
+            <summary>
+            Order the return likes by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetLikeQueryParameters.LikeableType">
+            <summary>
+            Returns only the likes that are on posts **or** comments according to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.OrderBy">
+            <summary>
+            Order the return posts by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.SortBy">
+            <summary>
+            Sort the returned posts by the given parameter.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.InName">
+            <summary>
+            Returns only posts whose name contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.InContent">
+            <summary>
+            Returns only posts whose content contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.FromPublicationDate">
+            <summary>
+            Returns only posts whose publication date is more recent or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.ToPublicationDate">
+            <summary>
+            Returns only posts whose published date is older or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.MinimumLikes">
+            <summary>
+            Returns only posts with a number of likes greater than or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.MaximumLikes">
+            <summary>
+            Returns only posts with a number of likes greater than or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetPostQueryParameters.Tagged">
+            <summary>
+            Returns only posts that have the specified tag given in the parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetRoleQueryParameters.OrderBy">
+            <summary>
+            Order the return roles by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetTagQueryParameters.OrderBy">
+            <summary>
+            Order the return tags by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetTagQueryParameters.InName">
+            <summary>
+            Returns only tags whose name contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.OrderBy">
+            <summary>
+            Order the return users by Ascending or Descending
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.SortBy">
+            <summary>
+            Sort the returned users by the given parameter.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.InUserName">
+            <summary>
+            Returns only users whose username contains the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.FromRegistrationDate">
+            <summary>
+            Returns only users whose register date is more recent or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.ToRegistrationDate">
+            <summary>
+            Returns only users whose register date is older or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.FromLastLoginDate">
+            <summary>
+            Returns only users whose last login date is more recent or equal to the given parameter
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Models.Queries.GetUserQueryParameters.ToLastLoginDate">
+            <summary>
+            Returns only users whose last login date is older or equal to the given parameter
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Responses.BlogErrorResponse">
+            <summary>
+            Error Response return from API to Client when the request couldn't be execute properly.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Responses.BlogErrorResponse.Type">
+            <summary>
+            Type of the exception raised.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Responses.BlogErrorResponse.Message">
+            <summary>
+            Message intended to the Client about the error description.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Responses.BlogErrorResponse.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Responses.BlogErrorResponse"/> class.
+            </summary>
+            <param name="type"></param>
+            <param name="message"></param>
+        </member>
+        <member name="T:DashboardAPI.Responses.BlogResponse`1">
+            <summary>
+            Response return from API to Client when the request was executed properly.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Responses.BlogResponse`1.#ctor(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Responses.BlogResponse`1"/> class.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="P:DashboardAPI.Responses.BlogResponse`1.Data">
+            <summary>
+            Data returned to the Client after the execution of its request.
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Responses.PagedBlogResponse`1">
+            <summary>
+            Class inherited from <see cref="T:DashboardAPI.Responses.BlogResponse`1"/>.
+            This class return a response to the request of the Client with pagination information.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:DashboardAPI.Responses.PagedBlogResponse`1.Page">
+            <summary>
+            Page of query elements applied.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Responses.PagedBlogResponse`1.Limit">
+            <summary>
+            Limit of item numbers applied from the query requested.
+            </summary>
+        </member>
+        <member name="P:DashboardAPI.Responses.PagedBlogResponse`1.Total">
+            <summary>
+            Total number of items existing in the query requested.
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Responses.PagedBlogResponse`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DashboardAPI.Responses.PagedBlogResponse`1"/> class.
+            </summary>
+            <param name="data"></param>
+            <param name="page"></param>
+            <param name="size"></param>
+            <param name="total"></param>
+        </member>
+        <member name="T:DashboardAPI.Services.MailService.EmailService">
+            <summary>
+            Service for sending emails.
+            Code taken and modified from https://code-maze.com/aspnetcore-send-email/ / https://github.com/CodeMazeBlog/email-attachments-aspnet-core
+            </summary>
+        </member>
+        <member name="T:DashboardAPI.Services.TokenService.ITokenService">
+            <summary>
+            Service used to manipulate JWT
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Services.TokenService.ITokenService.GenerateJwtAccessToken(System.Int32)">
+            <summary>
+            Generate a unique JWT Bearer token for a user.
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DashboardAPI.Services.TokenService.ITokenService.GenerateRefreshToken(System.Int32)">
+            <summary>
+            Generate a unique JWT refresh token for a user
+            </summary>
+        </member>
+        <member name="M:DashboardAPI.Services.TokenService.ITokenService.IsAuthenticAndValidRefreshToken(DashboardAPI.Models.DTOs.RefreshTokenDto)">
+            <summary>
+            Ensure tokens are valid and authentic
+            </summary>
+            <param name="refreshTokenDto"></param>
+        </member>
+        <member name="M:DashboardAPI.Services.TokenService.TokenService.GenerateJwtAccessToken(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:DashboardAPI.Services.TokenService.TokenService.GenerateRefreshToken(System.Int32)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
